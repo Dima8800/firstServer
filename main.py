@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from repository.repository import init_db
-from controllers.typeController import router as typeRouter
+from controllers import router as routers
 
 app = FastAPI()
 
@@ -9,7 +9,7 @@ app = FastAPI()
 init_db()
 
 # Подключаем маршруты контроллеров
-app.include_router(typeRouter)
+app.include_router(routers)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", port=8080)
